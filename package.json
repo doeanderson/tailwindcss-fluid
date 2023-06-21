@@ -1,0 +1,44 @@
+{
+  "name": "@doeanderson/tailwindcss-fluid",
+  "version": "0.0.1",
+  "description": "Tailwind CSS plugin for making fluid typography",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "yarn build"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/tailwind-fluid.umd.cjs",
+  "module": "./dist/tailwind-fluid.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/tailwind-fluid.js",
+      "require": "./dist/tailwind-fluid.umd.cjs"
+    }
+  },
+  "peerDependencies": {
+    "tailwindcss": ">=3.0.0 || insiders"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "typescript": "^5.1.3",
+    "vite": "^4.3.9",
+    "vite-plugin-dts": "^2.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doeanderson/tailwindcss-fluid.git"
+  },
+  "author": "Doe-Anderson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/doeanderson/tailwindcss-fluid/issues"
+  },
+  "homepage": "https://github.com/doeanderson/tailwindcss-fluid#readme"
+}
