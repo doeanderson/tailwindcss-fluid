@@ -12,6 +12,14 @@ export default defineConfig({
       name: 'Tailwind Fluid',
       fileName: 'tailwind-fluid',
     },
+    rollupOptions: {
+      external: ['tailwindcss'],
+      output: {
+        globals: {
+          tailwindcss: 'tailwindcss',
+        },
+      },
+    },
   },
   plugins: [
     dts(),
