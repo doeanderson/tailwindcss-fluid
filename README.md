@@ -16,8 +16,19 @@ Then add the plugin to your `tailwind.config.js` file:
 // tailwind.config.js
 module.exports = {
   theme: {
-    extends: {
+    extend: {
       fluid: {
+        margin: {
+          '1': {
+            min: '1rem',
+            max: '2rem',
+          },
+          '2': {
+            min: '3',
+            max: '4rem',
+          },
+          //..
+        },
         text: {
           '1xl': {
             min: '0.875rem',
