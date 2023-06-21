@@ -16,29 +16,34 @@ Then add the plugin to your `tailwind.config.js` file:
 // tailwind.config.js
 module.exports = {
   theme: {
-    // ...
+    extends: {
+      fluid: {
+        text: {
+          '1xl': {
+            min: '0.875rem',
+            max: '1rem',
+          },
+          '2xl': {
+            min: '1.125rem',
+            max: '1.25rem',
+          },
+          '3xl': {
+            min: '1.375rem',
+            max: '2rem',
+          },
+          //..
+        }
+      },
+      //..
+    },
   },
   plugins: [
     require('@doeanderson/tailwindcss-fluid')({
-      prefix: 'fluid-',
-      maxWidth: theme('screens.2xl'),
-      minWidth: theme('screens.sm'),
-      values: {
-        '1xl': {
-          min: '0.875rem',
-          max: '1rem',
-        },
-        '2xl': {
-          min: '1.125rem',
-          max: '1.25rem',
-        },
-        '3xl': {
-          min: '1.375rem',
-          max: '2rem',
-        },
-      },
+      prefix: 'fluid',
+      maxWidth: '1536px',
+      minWidth: '640px',
     });
-    // ...
+    //..
   ],
 }
 ```
