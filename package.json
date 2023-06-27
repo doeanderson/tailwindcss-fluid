@@ -1,7 +1,7 @@
 {
   "name": "@doeanderson/tailwindcss-fluid",
   "version": "0.0.0",
-  "description": "Tailwind CSS plugin for making fluid typography",
+  "description": "Tailwind CSS plugin for making fluid units",
   "type": "module",
   "scripts": {
     "dev": "vite",

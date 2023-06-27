@@ -1,6 +1,6 @@
 # Tailwind CSS Fluid Plugin
 
-Tailwind CSS plugin for making fluid typography.
+Tailwind CSS plugin for making fluid units.
 
 ## Install
 
@@ -16,7 +16,7 @@ Then add the plugin to your `tailwind.config.js` file:
 // tailwind.config.js
 module.exports = {
   theme: {
-    extend: {
+    extends: {
       fluid: {
         margin: {
           '1': {
