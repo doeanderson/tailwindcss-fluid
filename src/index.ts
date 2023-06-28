@@ -62,6 +62,16 @@ export default plugin.withOptions((options: TailwindCSSFluidOptions = {}) => ({
       root = '16px',
     } = options;
 
+    // TODO: Add support for remaining spacing units
+    const spacingUnits: string[] = [
+      'gap',
+      'height',
+      'margin',
+      'padding',
+      'space',
+      'width',
+    ];
+
     const unitUtilities: {
       [key: string]: (values: TailwindCSSFuildUnitConfig) => void,
     } = {
@@ -384,15 +394,7 @@ export default plugin.withOptions((options: TailwindCSSFluidOptions = {}) => ({
       },
     };
 
-    const spacingUnits: string[] = [
-      'gap',
-      'height',
-      'margin',
-      'padding',
-      'space',
-      'width',
-    ];
-
+    // TODO: Add support for generating negative utilities
     for (const unit in units) {
       if (unit === 'spacing') {
         for (const spacingUnit of spacingUnits) {
