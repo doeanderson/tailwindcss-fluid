@@ -18,7 +18,7 @@ module.exports = {
   theme: {
     extends: {
       fluid: {
-        margin: {
+        spacing: {
           '1': {
             min: '1rem',
             max: '2rem',
@@ -50,9 +50,9 @@ module.exports = {
   },
   plugins: [
     require('@doeanderson/tailwindcss-fluid')({
-      prefix: 'fluid',
-      maxWidth: '1536px',
-      minWidth: '640px',
+      prefix: 'fluid', // optional
+      maxWidth: '1536px', // optional
+      minWidth: '640px', // optional
     });
     //..
   ],
