@@ -18,18 +18,7 @@ module.exports = {
   theme: {
     extend: {
       fluid: {
-        spacing: {
-          '1': {
-            min: '1rem',
-            max: '2rem',
-          },
-          '2': {
-            min: '3',
-            max: '4rem',
-          },
-          //..
-        },
-        text: {
+        fontSize: {
           '1xl': {
             min: '0.875rem',
             max: '1rem',
@@ -43,7 +32,18 @@ module.exports = {
             max: '2rem',
           },
           //..
-        }
+        },
+        spacing: {
+          '1': {
+            min: '1rem',
+            max: '2rem',
+          },
+          '2': {
+            min: '3',
+            max: '4rem',
+          },
+          //..
+        },
       },
       //..
     },
