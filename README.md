@@ -16,7 +16,7 @@ Then add the plugin to your `tailwind.config.js` file:
 // tailwind.config.js
 module.exports = {
   theme: {
-    extends: {
+    extend: {
       fluid: {
         spacing: {
           '1': {
