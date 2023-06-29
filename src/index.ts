@@ -75,6 +75,44 @@ export default plugin.withOptions((options: TailwindCSSFluidOptions = {}) => ({
     const unitUtilities: {
       [key: string]: (values: TailwindCSSFuildUnitConfig) => void,
     } = {
+      fontSize: (values: TailwindCSSFuildUnitConfig) => {
+        matchUtilities(
+          {
+            [`${prefix}-text`]: (value: TailwindCSSFuildUnitConfigValue) => {
+              if (typeof value === 'string') {
+                return {
+                  fontSize: value,
+                }
+              }
+
+              const props: {
+                fontSize: string,
+                letterSpacing?: string,
+                lineHeight?: string,
+              } = {
+                fontSize: fluid(
+                  value.min,
+                  value.max,
+                  minWidth,
+                  maxWidth,
+                  root,
+                )
+              };
+
+              if (value.letterSpacing) {
+                props.letterSpacing = value.letterSpacing;
+              }
+
+              if (value.lineHeight) {
+                props.lineHeight = value.lineHeight;
+              }
+
+              return props;
+            }
+          },
+          { values: values as any },
+        );
+      },
       gap: (values: TailwindCSSFuildUnitConfig) => {
         const properties: {
           [key: string]: string | string[],
@@ -242,10 +280,7 @@ export default plugin.withOptions((options: TailwindCSSFluidOptions = {}) => ({
       space: (values: TailwindCSSFuildUnitConfig) => {
         matchUtilities(
           {
-            [`${prefix}-space-x`]: (value: string | {
-              max: string,
-              min: string,
-            }) => {
+            [`${prefix}-space-x`]: (value: TailwindCSSFuildUnitConfigValue) => {
               if (typeof value === 'string') {
                 return {
                   '& > :not([hidden]) ~ :not([hidden])': {
@@ -282,10 +317,7 @@ export default plugin.withOptions((options: TailwindCSSFluidOptions = {}) => ({
 
         matchUtilities(
           {
-            [`${prefix}-space-y`]: (value: string | {
-              max: string,
-              min: string,
-            }) => {
+            [`${prefix}-space-y`]: (value: TailwindCSSFuildUnitConfigValue) => {
               if (typeof value === 'string') {
                 return {
                   '& > :not([hidden]) ~ :not([hidden])': {
@@ -324,49 +356,6 @@ export default plugin.withOptions((options: TailwindCSSFluidOptions = {}) => ({
           [`.${prefix}-space-x-reverse > :not([hidden]) ~ :not([hidden])`]: { [`--${prefix}-space-x-reverse`]: '1' },
           [`.${prefix}-space-y-reverse > :not([hidden]) ~ :not([hidden])`]: { [`--${prefix}-space-y-reverse`]: '1' },
         });
-      },
-      text: (values: TailwindCSSFuildUnitConfig) => {
-        matchUtilities(
-          {
-            [`${prefix}-text`]: (value: string | {
-              letterSpacing?: string,
-              lineHeight?: string,
-              max: string,
-              min: string,
-            }) => {
-              if (typeof value === 'string') {
-                return {
-                  fontSize: value,
-                }
-              }
-
-              const properties: {
-                fontSize: string,
-                letterSpacing?: string,
-                lineHeight?: string,
-              } = {
-                fontSize: fluid(
-                  value.min,
-                  value.max,
-                  minWidth,
-                  maxWidth,
-                  root,
-                )
-              };
-
-              if (value.letterSpacing) {
-                properties.letterSpacing = value.letterSpacing;
-              }
-
-              if (value.lineHeight) {
-                properties.lineHeight = value.lineHeight;
-              }
-
-              return properties;
-            }
-          },
-          { values: values as any },
-        );
       },
       width: (values: TailwindCSSFuildUnitConfig) => {
         matchUtilities(
